@@ -56,18 +56,21 @@ const Button = styled.button`
 `
 const ContactPage = props => {
 
+  const lang = props.data.prismic.allContactpages.edges[0].node._meta.lang;
+  const actionName = `/${lang}/contact-success`;
+
   return (
-    <Layout lang={props.data.prismic.allContactpages.edges[0].node._meta.lang}>
+    <Layout lang={lang}>
       <SliceZone
         body={props.data.prismic.allContactpages.edges[0].node.body}
         page="contact"
       />
 
-
       <Form name="contact-us"
             method="POST"
+            data-netlify-recaptcha="true"
             data-netlify="true"
-            action="/contact-success"
+            action={actionName}
         >
         <input type="hidden" name="form-name" value="contact-us" />
 
@@ -84,7 +87,12 @@ const ContactPage = props => {
               )
             } else if (field.field_type === 'submit') {
               return (
-                <Button key={index}>{field.field_title}</Button>
+
+                <React.Fragment key={index}>
+                  <div data-netlify-recaptcha="true"></div>
+                  <Button key={index}>{field.field_title}</Button>
+                </React.Fragment>
+               
               )
             } else {
               return (
