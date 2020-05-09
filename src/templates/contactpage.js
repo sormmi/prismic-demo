@@ -56,13 +56,8 @@ const Button = styled.button`
 `
 const ContactPage = props => {
 
-  const onSubmit = (event) => {
-    event.preventDefault();
-    console.log("SUBMIT FORM");
-  }
-  
   return (
-    <Layout>
+    <Layout lang={props.data.prismic.allContactpages.edges[0].node._meta.lang}>
       <SliceZone
         body={props.data.prismic.allContactpages.edges[0].node.body}
         page="contact"
@@ -73,7 +68,7 @@ const ContactPage = props => {
             method="POST"
             data-netlify="true"
             action="/contact-success"
-            onSubmit={onSubmit}>
+        >
         <input type="hidden" name="form-name" value="contact-us" />
 
         <h2>{RichText.asText(props.data.prismic.allContactpages.edges[0].node.form_title)}</h2>

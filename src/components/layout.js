@@ -68,10 +68,8 @@ const Branding = styled.div`
   }
 `;
 
-const Layout = ({ children }) => {
-  const currentLangauage = window.location.pathname.startsWith("/en-us")
-    ? "en-us"
-    : "fi";
+const Layout = ({ children, lang="fi" }) => {
+  let currentLangauage = lang;
 
   const navQuery = graphql`
     {
@@ -147,10 +145,10 @@ const Layout = ({ children }) => {
 
         <div className="languages">
           <NavLink>
-            <Link to={`/fi`} activeClassName="active" partiallyActive={true}>
+            <Link to={`/fi/home`} activeClassName="active" partiallyActive={true}>
               FI
             </Link>
-            <Link to={`/en-us`} activeClassName="active" partiallyActive={true}>
+            <Link to={`/en-us/home`} activeClassName="active" partiallyActive={true}>
               EN
             </Link>
           </NavLink>
