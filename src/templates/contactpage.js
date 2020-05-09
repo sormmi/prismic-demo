@@ -57,7 +57,6 @@ const Button = styled.button`
 const ContactPage = props => {
 
   const lang = props.data.prismic.allContactpages.edges[0].node._meta.lang;
-  const actionName = `/${lang}/contact-success`;
 
   return (
     <Layout lang={lang}>
@@ -68,9 +67,8 @@ const ContactPage = props => {
 
       <Form name="contact-us"
             method="POST"
-            data-netlify-recaptcha="true"
             data-netlify="true"
-            action={actionName}
+            action="/contact-success"
         >
         <input type="hidden" name="form-name" value="contact-us" />
 
@@ -87,12 +85,7 @@ const ContactPage = props => {
               )
             } else if (field.field_type === 'submit') {
               return (
-
-                <React.Fragment key={index}>
-                  <div data-netlify-recaptcha="true"></div>
                   <Button key={index}>{field.field_title}</Button>
-                </React.Fragment>
-               
               )
             } else {
               return (

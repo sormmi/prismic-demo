@@ -15,6 +15,11 @@ const ContactSuccessPage = props => {
         <h2>Kiitoksia yhteydenotostasi!</h2>
         <p>Palaamme asiaan pikaisesti kun viestisi on käsitelty...</p>
       </ContactWrapper>
+
+      <ContactWrapper>
+        <h2>Thank you for contacting us!</h2>
+        <p>We will get back to you as soon as your message has been processed.</p>
+      </ContactWrapper>
     </Layout>
   )
 }
