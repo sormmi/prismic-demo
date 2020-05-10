@@ -7,7 +7,7 @@ import SliceZone from "components/SliceZone";
 const IndexPage = ({ data }) => {
   return (
     <Layout lang={data.prismic.allAboutpages.edges[0].node._meta.lang}>
-      <SEO title="About Us" />
+      <SEO title="About" />
       <SliceZone
         body={data.prismic.allAboutpages.edges[0].node.body}
         page="about"

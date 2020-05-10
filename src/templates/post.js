@@ -4,6 +4,7 @@ import { RichText } from "prismic-reactjs";
 import Layout from "components/layout";
 import { ImageCaption, Quote, Text } from "../components/slices";
 import styled from "styled-components";
+import SEO from "../components/seo";
 
 const PostSection = styled.section`
   margin: 30px auto;
@@ -108,7 +109,7 @@ const PostBody = ({ blogPost }) => {
 
       <div className="back">
         <Link to={`/${blogPost._meta.lang}/articles`}>
-          {blogPost._meta.lang === "fi" ? "T  akaisin" : "Back"}
+          {blogPost._meta.lang === "fi" ? "Takaisin" : "Back"}
         </Link>
       </div>
     </div>
@@ -123,6 +124,7 @@ export default props => {
 
   return (
     <Layout lang={doc.node._meta.lang}>
+      <SEO title={doc.node.title} />
       <PostSection>
         <PostBody blogPost={doc.node} />
       </PostSection>

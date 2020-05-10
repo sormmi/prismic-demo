@@ -145,10 +145,10 @@ const Layout = ({ children, lang="fi" }) => {
 
         <div className="languages">
           <NavLink>
-            <Link to={`/fi/home`} activeClassName="active" partiallyActive={true}>
+            <Link to={`/fi`} activeClassName="active" partiallyActive={true}>
               FI
             </Link>
-            <Link to={`/en-us/home`} activeClassName="active" partiallyActive={true}>
+            <Link to={`/en-us`} activeClassName="active" partiallyActive={true}>
               EN
             </Link>
           </NavLink>

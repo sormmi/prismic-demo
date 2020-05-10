@@ -25,7 +25,7 @@ function SEO({ description = "Prismic Gatsby Demo", lang, meta, title }) {
     `
   );
 
-  const metaDescription = description || site.siteMetadata.description;
+  const metaDescription = description || '';
 
   return (
     <Helmet
@@ -33,7 +33,7 @@ function SEO({ description = "Prismic Gatsby Demo", lang, meta, title }) {
         lang,
       }}
       title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
+      titleTemplate={`%s | Prismic Gatsby`}
       meta={[
         {
           name: `description`,
@@ -57,7 +57,7 @@ function SEO({ description = "Prismic Gatsby Demo", lang, meta, title }) {
         },
         {
           name: `twitter:creator`,
-          content: site.siteMetadata.author,
+          content: '@sormmi',
         },
         {
           name: `twitter:title`,

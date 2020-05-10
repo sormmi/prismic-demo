@@ -629,3 +629,37 @@ a {
   text-decoration: none;
   color: #077bb0;
 }
+
+.contact-form {
+  background: #fafafa;
+  padding: 20px;
+  margin: 30px auto;
+  max-width: 600px;
+}
+
+.contact-form-label {
+  display: block;
+  min-width: 200px;
+  margin-bottom: 6px;
+}
+
+.contact-form-input, .contact-form-textarea {
+  width: 100%;
+  margin-bottom: 20px;
+  min-height: 40px;
+  padding: 6px;
+  border: 1px solid #ddd;
+}
+
+.contact-form-input:focus, .contact-form-textarea:active {
+  outline-style: none;
+  border-bottom: 2px solid darkseagreen;
+}
+
+.contact-form-textarea {
+  height: 120px;
+  width: 100%;
+  resize: none;
+}
+
+
