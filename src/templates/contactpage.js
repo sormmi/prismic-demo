@@ -6,6 +6,39 @@ import styled from "styled-components";
 import { RichText } from 'prismic-reactjs'
 import SEO from "../components/seo";
 
+
+const Form = styled.form`
+  background: #fafafa;
+  padding: 20px;
+  margin: 30px auto;
+  max-width: 600px;
+  
+  label {
+    display: block;
+    min-width: 200px;
+    margin-bottom: 6px;
+  }
+  
+  input, textarea {
+    width: 100%;
+    margin-bottom: 20px;
+    min-height: 40px;
+    padding: 6px;
+    border: 1px solid #ddd;
+    
+    &:focus, &:active {
+      outline-style: none;
+      border-bottom: 2px solid darkseagreen;
+    }
+  }
+  
+  textarea { 
+    height: 120px;
+    width: 100%;
+    resize: none;   
+  }
+`;
+
 const Button = styled.button`
   background: orange;
   border: orange;
@@ -35,11 +68,10 @@ const ContactPage = props => {
         page="contact"
       />
 
-      <form name="contact-us"
+      <Form name="contact-us"
             method="POST"
             data-netlify="true"
             action="/contact-success"
-            className="contact-form"
         >
         <input type="hidden" name="form-name" value="contact-us" />
 
@@ -50,8 +82,8 @@ const ContactPage = props => {
             if (field.field_type === 'textarea') {
               return (
                 <div key={index}>
-                  <label className="contact-form-label">{field.field_title}</label>
-                  <textarea className="contact-form-textarea" name={field.field_name} required={field.required === 'yes'} />
+                  <label>{field.field_title}</label>
+                  <textarea name="{field.field_name}" required={field.required === 'yes'} />
                 </div>
               )
             } else if (field.field_type === 'submit') {
@@ -61,14 +93,14 @@ const ContactPage = props => {
             } else {
               return (
                 <div key={index}>
-                  <label className="contact-form-label">{field.field_title} {field.required === 'yes' ? '*' : ''}</label>
-                  <input className="contact-form-input" type={field.type} name={field.field_name} autoComplete="none" required={field.required === 'yes'} />
+                  <label>{field.field_title} {field.required === 'yes' ? '*' : ''}</label>
+                  <input type={field.type} name={field.field_name} autoComplete="none" required={field.required === 'yes'} />
                 </div>
               )
             }
         })}
 
-      </form>
+      </Form>
 
     </Layout>
   );
