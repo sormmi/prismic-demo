@@ -83,7 +83,7 @@ const ContactPage = props => {
               return (
                 <div key={index}>
                   <label>{field.field_title}</label>
-                  <textarea name="{field.field_name}" required={field.required === 'yes'} />
+                  <textarea name={field.field_name} required={field.required === 'yes'} />
                 </div>
               )
             } else if (field.field_type === 'submit') {
